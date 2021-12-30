@@ -1,0 +1,14 @@
+{
+  "name": "animalapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "AnimalApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "native-toast": "^2.0.0"
+  }
+}
