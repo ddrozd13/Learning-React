@@ -1,8 +1,6 @@
 const inputSearch = () => {
   const container = document.createElement('div');
   const input = document.createElement('input');
-  const button = document.createElement('button');
-  button.innerText = 'Search';
   input.placeholder = 'Enter name to search...';
   input.oninput = () => {
     const val = input.value.trim().toLowerCase();
@@ -12,7 +10,7 @@ const inputSearch = () => {
         if(item.innerText.toLowerCase().search(val) === -1){
           item.closest('.card').classList.add('hidden');
         }else {
-          item.classList.remove('hidden');
+          item.closest('.card').classList.remove('hidden');
         };
       });
     }else {
@@ -21,7 +19,7 @@ const inputSearch = () => {
       });
     };
   };
-  container.append(input, button);
+  container.append(input);
   container.classList.add('search');
   return container;
 }

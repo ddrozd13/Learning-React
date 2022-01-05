@@ -44,18 +44,10 @@ button {
 }
 
 .search input {
-  width: 80%;
+  width: 100%;
   padding: 10px 20px;
   border-radius: 10px;
   background-color: inherit;
-}
-
-.search button {
-  padding: 10px 20px;
-  width: 150px;
-  border-radius: 10px;
-  background-color: inherit;
-  color: black;
 }
 
 .card {
