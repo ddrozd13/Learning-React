@@ -1,4 +1,4 @@
-import nativeToast, { success } from 'native-toast';
+import nativeToast from 'native-toast';
 
 const fossilsCard = (props) => {
   const container = document.createElement('div');
@@ -25,7 +25,8 @@ const fossilsCard = (props) => {
       message: `Price: ${props.price}`,
     });
   };
+
   return container;
-}
+};
 
 export default fossilsCard;

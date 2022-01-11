@@ -1,4 +1,4 @@
-import nativeToast, { success } from 'native-toast';
+import nativeToast from 'native-toast';
 
 const fishCard = (props) => {
   const container = document.createElement('div');
@@ -29,7 +29,8 @@ const fishCard = (props) => {
       message: `Price: ${props.price}`,
     });
   };
+
   return container;
-}
+};
 
 export default fishCard;

@@ -19,7 +19,8 @@ const villagersCard = (props) => {
   div.append(name, gender, species, personality, birthdayString, saying);
   container.append(img, div);
   container.classList.add('card');
+
   return container;
-}
+};
 
 export default villagersCard;
