@@ -1,0 +1,20 @@
+{
+  "name": "animalapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "AnimalApp.js",
+  "scripts": {
+    "start": "parcel AnimalApp.html",
+    "lint": "eslint ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "native-toast": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
