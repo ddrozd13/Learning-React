@@ -5,23 +5,24 @@ const inputSearch = () => {
   input.oninput = () => {
     const val = input.value.trim().toLowerCase();
     const elements = document.querySelectorAll('p[name]');
-    if(val !== ''){
+    if (val !== '') {
       elements.forEach((item) => {
-        if(item.innerText.toLowerCase().search(val) === -1){
+        if (item.innerText.toLowerCase().search(val) === -1) {
           item.closest('.card').classList.add('hidden');
-        }else {
+        } else {
           item.closest('.card').classList.remove('hidden');
-        };
+        }
       });
-    }else {
+    } else {
       elements.forEach((item) => {
         item.closest('.card').classList.remove('hidden');
       });
-    };
+    }
   };
   container.append(input);
   container.classList.add('search');
+
   return container;
-}
+};
 
 export default inputSearch;
