@@ -5,10 +5,11 @@ import header from "./src/components/Header/Header";
 import inputSearch from "./src/components/Search/inputSearch";
 
 (async () => {
-  const app = await App(fishAPI('http://acnhapi.com/v1/fish'), fishCard);
+  const app = await App(fishAPI('fish'), fishCard);
   const wrapper = document.getElementById('wrapper');
   wrapper.append(app);
 })();
+
 const query = async (api, card) => {
   const app = await App(api, card);
   const wrapper = document.getElementById('wrapper');

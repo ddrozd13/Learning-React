@@ -1,0 +1,7 @@
+{
+  "extends": "eslint-config-airbnb/base",
+  "ignorePatterns": "dist",
+  "env": {
+    "browser": true
+  }
+}

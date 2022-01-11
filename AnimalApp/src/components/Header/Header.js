@@ -18,10 +18,10 @@ const header = () => {
   bugs.innerText = 'Bugs';
   fossils.innerText = 'Fossils';
   villagers.innerText = 'Villagers';
-  fish.onclick = () => query(fishAPI('http://acnhapi.com/v1/fish'), fishCard);
+  fish.onclick = () => query(fishAPI('fish'), fishCard);
   villagers.onclick = () => query(villagersAPI(), villagersCard);
-  seaCreatures.onclick = () => query(fishAPI('http://acnhapi.com/v1/sea'), fishCard);
-  bugs.onclick = () => query(fishAPI('http://acnhapi.com/v1/bugs'), fishCard);
+  seaCreatures.onclick = () => query(fishAPI('sea'), fishCard);
+  bugs.onclick = () => query(fishAPI('bugs'), fishCard);
   fossils.onclick = () => query(fossilsAPI(), fossilsCard);
   header.append(fish, seaCreatures, bugs, fossils, villagers);
   return header;
