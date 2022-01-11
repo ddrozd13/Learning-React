@@ -1,4 +1,5 @@
 const footer = () => {
+  // eslint-disable-next-line no-shadow
   const footer = document.createElement('footer');
   const logoImg = document.createElement('img');
   logoImg.src = 'https://www.fbi.gov/++theme++fbigov.theme/images/fbi-seal-logo.png';
@@ -13,8 +14,8 @@ const footer = () => {
   footer.classList.add('footer');
   div.classList.add('logo');
   footer.append(div, number);
-  return footer
-}
 
+  return footer;
+};
 
 export default footer;

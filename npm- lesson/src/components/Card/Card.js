@@ -1,7 +1,7 @@
 const Card = (props) => {
-  const container =  document.createElement('div');
-  const img =  document.createElement('img');
-  const fullName =  document.createElement('i');
+  const container = document.createElement('div');
+  const img = document.createElement('img');
+  const fullName = document.createElement('i');
   const descriptions = document.createElement('p');
   const birthPlace = document.createElement('p');
   const race = document.createElement('p');
