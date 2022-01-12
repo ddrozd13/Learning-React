@@ -1,0 +1,15 @@
+.buttonSwitch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 150px;
+}
+
+.buttonSwitch button {
+  padding:30px 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: purple;
+  background-color: yellowgreen;
+}
