@@ -1,7 +1,7 @@
 import propTypes from "prop-types";
 import React from "react";
 
-function useInputValue(defaultValue = '') {
+const useInputValue = (defaultValue = '') => {
   const [value, setValue] = React.useState('');
 
   return {
@@ -11,14 +11,14 @@ function useInputValue(defaultValue = '') {
     },
     clear: () => setValue(''),
     value: () => value,
-  }
-}
+  };
+};
 
-function AddTodo({ onCreate }) {
+const AddTodo = ({ onCreate }) => {
   const input = useInputValue('');
 
   function submitHandler(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (input.value().trim()) {
       onCreate(input.value());
@@ -31,11 +31,11 @@ function AddTodo({ onCreate }) {
       <input {...input.bind} />
       <button type="submit">Add Todo</button>
     </form>
-  )
-}
+  );
+};
 
 AddTodo.propTypes = {
-  onCreate: propTypes.func.isRequired
-}
+  onCreate: propTypes.func.isRequired,
+};
 
 export default AddTodo;

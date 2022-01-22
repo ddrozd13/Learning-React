@@ -7,9 +7,9 @@ const styles = {
     listStyle: 'none',
     margin: 0,
     padding: 0,
-  }
-}
-function TodoList(props) {
+  },
+};
+const TodoList = (props) => {
   return (
     <ul style={styles.ul}>
       {props.todos.map((todo, index) => {
@@ -20,15 +20,15 @@ function TodoList(props) {
             index={index}
             onChange={props.onToggle}
           />
-        )
-      })}
+        );
+      })};
     </ul>
-  )
+  );
 };
 
 TodoList.propTypes = {
   todos: propTypes.arrayOf(propTypes.object).isRequired,
   onToggle: propTypes.func.isRequired,
-}
+};
 
 export default TodoList;

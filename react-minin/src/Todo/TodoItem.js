@@ -14,10 +14,10 @@ const styles = {
   },
   input: {
     marginRight: '1rem'
-  }
-}
+  },
+};
 
-function TodoItem({ todo, index, onChange }){
+const TodoItem = ({ todo, index, onChange }) => {
   const {removeTodo} = useContext(Context);
   const classes = [];
   if (todo.completed) {
@@ -40,13 +40,13 @@ function TodoItem({ todo, index, onChange }){
 
       <button className="rm" onClick={removeTodo.bind(null, todo.id)}>&times;</button>
     </li>
-  )
-}
+  );
+};
 
 TodoItem.propTypes = {
   todo: propTypes.object.isRequired,
   index: propTypes.number,
-  onChange: propTypes.func.isRequired
+  onChange: propTypes.func.isRequired,
 };
 
 export default TodoItem;
