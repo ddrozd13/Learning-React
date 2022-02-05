@@ -2,7 +2,7 @@ import axios from 'axios';
 
 interface IBaseCountryInfo {
   commonName: string;
-  offficialName: string;
+  officialName: string;
   countryCode: string;
   region: string;
 };

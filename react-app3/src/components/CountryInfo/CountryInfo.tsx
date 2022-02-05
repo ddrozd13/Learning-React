@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import getCountryInfo, { ICountryInfo } from '../api/getCountryInfo';
-import { CircularProgress } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import { deepOrange } from '@mui/material/colors';
+import { indigo } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
+import styles from './CountryInfo.module.scss';
 
 const CountryInfo: FC = () => {
   const { countryCode} = useParams();
@@ -16,30 +17,58 @@ const CountryInfo: FC = () => {
     setCountryInfo(newCountryInfo);
   };
 
+  const handleOnClick = () => {
+    navigate(`/`);
+  }
   const handleCountryClick = (countryCode: string) => () => {
     navigate(`/countries/${countryCode}`)
   }
+  const handleOnHolidays = (countryCode: string) => {
+    navigate(`/countries/${countryCode}/holidays`)
+  }
+
   useEffect(() => {
     fetchCountryInfo();
   }, [countryCode])
   return (
-    <div>
-      {!countryInfo && <CircularProgress color='secondary'/>}
-      {countryInfo && (
-        <div>
+    <div className={styles.container}>
+      <div>
+        {!countryInfo && <CircularProgress color='secondary'/>}
+        {countryInfo && (
           <div>
-          {countryInfo.commonName} ({countryInfo.offficialName} - {countryInfo.region})
+            <div>
+            <span className={styles.text}>Region:</span> {countryInfo.region}
+            </div>
+            <div>
+              <span className={styles.text}>Country code:</span>{countryInfo.countryCode}
+            </div>
+            <div>
+            <span className={styles.text}>Country name:</span> {countryInfo.commonName}
+            </div>
+            <div>
+            <span className={styles.text}>Full name:</span> {countryInfo.officialName}
+            </div>
+            <Stack direction="row" spacing={2} sx={{alignItems: 'center', display: 'inline-flex'}}>
+              {countryInfo.borders?.map((info) => (
+                <Avatar key={`${info.region}${info.commonName}`} sx={{  bgcolor: indigo[200], width: 70, height: 70}} onClick={handleCountryClick(info.countryCode)}>
+                  <img
+                    loading="lazy"
+                    width="20"
+                    src={`https://flagcdn.com/w20/${info.countryCode.toLowerCase()}.png`}
+                    srcSet={`https://flagcdn.com/w40/${info.countryCode.toLowerCase()}.png 2x`}
+                    alt={`Flag of ${info.officialName}`}
+                  />
+                  {info.countryCode}
+                </Avatar>
+              ))}
+            </Stack>
+            <Stack direction="row" spacing={60} sx={{mt: 30}}>
+              <Button variant="contained" onClick={() => handleOnHolidays(countryInfo?.countryCode)}>Check Holidays</Button>
+              <Button variant="contained" color="error" onClick={handleOnClick}>Go back</Button>
+            </Stack>
           </div>
-          <div>
-            {countryInfo.countryCode}
-          </div>
-          <Stack direction="row" spacing={2}>
-            {countryInfo.borders.map((info) => (
-              <Avatar sx={{ bgcolor: deepOrange[500] }} onClick={handleCountryClick(info.countryCode)}>{info.countryCode}</Avatar>
-            ))}
-          </Stack>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
