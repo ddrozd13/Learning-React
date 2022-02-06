@@ -1,24 +1,11 @@
-import axios, { AxiosResponse } from 'axios';
-import { FC, Fragment, useEffect, useState } from 'react';
+import axios from 'axios';
 
-type IInsult = string;
+export type IInsult = string;
 
-const GetInsult: FC = () => {
-  const [insult, setInsult] = useState<IInsult>('');
-  useEffect(() => {
-    axios.get('/generate_insult.php?lang=ru')
-    .then((response: AxiosResponse) => {
-      setInsult(response.data);
-    });
-  });
+const getInsult = async (): Promise<IInsult> => {
+  const response = await axios.get<IInsult>('/generate_insult.php?lang=ru');
 
-  return (
-    <Fragment>
-      <div>
-        {insult.charAt(0).toUpperCase() + insult.slice(1)}
-      </div>
-    </Fragment>
-  )
+  return response.data;
 };
 
-export default GetInsult;
+export default getInsult;
