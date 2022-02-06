@@ -1,5 +1,5 @@
-import CardList from "./components/CardList/CardList";
-import getPhotos from "./components/getPhotos/getPhotos";
+import CardList from './components/CardList/CardList';
+import getPhotos from './components/getPhotos/getPhotos';
 
 const App = async () => {
   const container = document.createElement('div');
