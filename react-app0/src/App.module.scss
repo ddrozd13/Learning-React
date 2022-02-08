@@ -1,0 +1,20 @@
+.userCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid grey;
+  margin: 0 auto;
+  max-width: 60%;
+  margin-bottom: 30px;
+  font-size: 20px;
+
+  div {
+    font-weight: bold;
+  }
+
+  span {
+    font-size: 18px;
+    color: blue;
+  }
+}
