@@ -4,16 +4,15 @@ export interface IResultCountry {
   Country: string;
   TotalConfirmed: number;
   TotalDeaths: number;
-  ID: any;
+  ID: number | string;
 }
 export interface IGetResult {
-  ID: any;
   Global: {
     NewConfirmed: number;
     TotalConfirmed: number;
     NewDeaths: number;
     TotalDeaths: number;
-    Date: number & string;
+    Date: number | string;
   };
   Countries: IResultCountry[];
 }

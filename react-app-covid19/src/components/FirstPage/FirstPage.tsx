@@ -75,7 +75,7 @@ const FirstPage: FC = () => {
             {countries.map((country) => (
               <MenuItem
                 key={`${country.ISO2}${country.Country}`}
-                value={country.Country}
+                value={country.ISO2}
                 sx={{mb: 1}}
               >
                 <img
@@ -119,28 +119,6 @@ const FirstPage: FC = () => {
             </div>
           </div>
         )}
-        <div className={styles.containerInfo}>
-          <table className={styles.info}>
-            <tr className={styles.title}>
-              <th>Country</th>
-              <th>Total Confirmed</th>
-              <th>Total Deaths</th>
-            </tr>
-            {stats && stats.Countries.map((info) => (
-              <tr key={info.ID} className={styles.title}>
-                <td>
-                  {info.Country}
-                </td>
-                <td>
-                  {info.TotalConfirmed}
-                </td>
-                <td>
-                  {info.TotalDeaths}
-                </td>
-              </tr>
-            ))}
-          </table>
-        </div>
       </div>
     </div>
   );
