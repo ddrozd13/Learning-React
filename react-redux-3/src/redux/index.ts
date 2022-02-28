@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import placesReducer from './Places/Reducer';
+import placesDetailsReducer from './PlacesDetails/Reducer';
 
 
 export const initialState = {
@@ -9,6 +10,7 @@ export const initialState = {
 export const store = configureStore({
   reducer: {
     places: placesReducer,
+    placesDetails: placesDetailsReducer,
   }
 });
 
