@@ -11,10 +11,10 @@ const CountryHolidays: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [holidays, setHolidays] = useState<IHoliday[] | null>(null);
-  const [yearValue, setYearValue] = useState<string>('2022')
+  const [yearValue, setYearValue] = useState<string>('2022');
   const [open, setOpen] = useState(false);
   const searchParams = new URLSearchParams(location.search);
-  const dateAsString = searchParams.get('date')
+  const dateAsString = searchParams.get('date');
 
   const fetchHolidays = async () => {
     const date = dateAsString
@@ -22,10 +22,10 @@ const CountryHolidays: FC = () => {
     : new Date();
     const newHolidays = await getHolidays(countryCode!, date.getFullYear());
     setHolidays(newHolidays);
-  }
+  };
   const handleOnClick = (countryCode: string) => {
     navigate(`/countries/${countryCode}`);
-  }
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -83,7 +83,7 @@ const CountryHolidays: FC = () => {
         <Button variant="contained" color="error" onClick={() => handleOnClick(countryCode!)}>Go back</Button>
       </Stack>
     </div>
-  )
-}
+  );
+};
 
 export default CountryHolidays;

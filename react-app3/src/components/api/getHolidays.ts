@@ -13,8 +13,7 @@ const getHolidays = async (countryCode: string, year: number): Promise<IHoliday[
     const holidays = await response.json();
 
     return holidays;
-
-  }
+  };
 };
 
 export default getHolidays;

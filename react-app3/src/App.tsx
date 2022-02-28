@@ -40,8 +40,8 @@ const App: FC = () => {
   };
 
   const handleOnClick = (countryCode: string): void => {
-    navigate(`/countries/${countryCode}`)
-  }
+    navigate(`/countries/${countryCode}`);
+  };
 
   useEffect(() => {
     fetchAllCountries();
@@ -90,6 +90,6 @@ const App: FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
