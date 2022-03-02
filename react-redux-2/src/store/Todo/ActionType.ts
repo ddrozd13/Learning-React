@@ -2,7 +2,7 @@ enum Todo {
   Like = 'Like',
   Dislike = 'Dislike',
   Get = 'Get',
-  Delete = 'Delete',
+  Create = 'Create'
 }
 
 export default Todo;

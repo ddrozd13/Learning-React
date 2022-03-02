@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { addPost, likePost } from './Todo/Reducers';
+import { likePost } from './Likes/Reducers';
+import { addPost } from './Todo/Reducers';
 
 const store = configureStore({
   reducer: {
