@@ -33,6 +33,12 @@ const PlaceDetails: FC = () => {
   } = placeDetails[id!] || {};
 
   const isLoading = placeDetails[id!] === undefined
+
+  if(placeDetails[id!] === null){
+    return  (
+      <div></div>
+    )
+  }
   return (
     <PageLayout>
       <div>
@@ -69,6 +75,6 @@ const PlaceDetails: FC = () => {
       </div>
     </PageLayout>
   )
-}
+};
 
 export default PlaceDetails;

@@ -1,4 +1,5 @@
 import { random } from 'lodash'
+import { IValidateCreateSafePlaceFormData } from '../components/CreateSafePlacePopup/validateCreateSafePlaceForm';
 
 export enum PlaceType {
   Basement = 'basement',
@@ -35,15 +36,28 @@ export const FAKE_DATA: IPlace[] = Array
 export default class PlacesApi {
   public getAll(): Promise<IPlace[]> {
     return new Promise((resolve) => {
-      setTimeout(()=> resolve(FAKE_DATA), 1000)
-    })
+      setTimeout(()=> resolve(FAKE_DATA), 1000);
+    });
   };
 
   public getById(id: string): Promise<IPlace | null> {
     return new Promise((resolve) => {
       const placeDetails = FAKE_DATA.find((place) => place.id === id) || null;
 
-      setTimeout(() => resolve(placeDetails), 1000)
-    })
+      setTimeout(() => resolve(placeDetails), 1000);
+    });
+  };
+
+  public create(data: IValidateCreateSafePlaceFormData): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(()=> {
+        FAKE_DATA.push({
+          ...data,
+          id: `id-${FAKE_DATA.length - 1}`,
+          createdAt: Date.now(),
+        })
+        resolve()
+      }, 1000);
+    });
   }
 }
