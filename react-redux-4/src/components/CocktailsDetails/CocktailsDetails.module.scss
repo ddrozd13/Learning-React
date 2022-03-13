@@ -1,0 +1,67 @@
+.container {
+  margin: 20px 200px 0 200px;
+  max-height: 110vh;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    cursor: default;
+
+
+  }
+
+  .cardImage {
+    width: 500px;
+    height: 500px;
+  }
+
+  .title {
+    text-align: center;
+    color: palevioletred;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  :nth-child(n) {
+    margin-bottom: 10px;
+  }
+
+  .iconContainer {
+    margin: 0;
+
+    .icon {
+      margin: 0;
+    }
+  }
+
+  .ingredients {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 100%;
+      margin-left: 40px;
+
+      li {
+        margin-right: 40px;
+
+        ::marker {
+          margin-right: 1px;
+        }
+      }
+    }
+  }
+}

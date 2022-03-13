@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1440px;
+}
+.content {
+  margin: 0px 100px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxAlcohol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+}
+
+.cardArea {
+  width: 70%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.cardArea .cardImage {
+  height: 78vh;
+  width: 100%;
+}

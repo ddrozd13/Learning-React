@@ -1,0 +1,26 @@
+
+.mainContainer {
+  .appBar {
+    padding: 10px 0px;
+    background-color: saddlebrown;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .logo {
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .developer {
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
