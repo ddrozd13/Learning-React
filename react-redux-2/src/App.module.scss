@@ -1,0 +1,48 @@
+
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid blue;
+  width: 360px;
+  min-height: 30vh;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: coral;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin-top: 20px;
+
+  button {
+    min-width: 120px;
+    padding: 10px;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+
+  input {
+    margin-bottom: 20px;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  :nth-child(n) {
+    margin-bottom: 10px;
+  }
+}
