@@ -1,5 +1,7 @@
 enum IPlacesDetailsActionType {
-  GetPlacesDetails = 'PlacesDetails/getPlaceDetails'
+  GetPlacesDetails = 'PlacesDetails/getPlaceDetails',
+  Like = 'PlacesDetails/Like',
+  DisLike = 'PlacesDetails/DisLike',
 };
 
 export default IPlacesDetailsActionType;

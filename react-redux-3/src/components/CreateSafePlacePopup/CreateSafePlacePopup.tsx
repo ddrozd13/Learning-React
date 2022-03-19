@@ -10,7 +10,7 @@ import validateCreateSafePlaceForm, { IValidateCreateSafePlaceFormData, IValidat
 import AppMarkdownError from '../AppMarkdownError/AppMarkdownError';
 
 interface ICreateSafePlacePopupProps {
-  onSave: (data: IValidateCreateSafePlaceFormData) => void;
+  onSave: (data: IValidateCreateSafePlaceFormData) => Promise<void>;
 }
 const CreateSafePlacePopup: FC<ICreateSafePlacePopupProps> = ({ onSave }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,8 @@ const CreateSafePlacePopup: FC<ICreateSafePlacePopupProps> = ({ onSave }) => {
   const [imageSrc, setImageSrc] = useState('');
   const [type, setType] = useState(PlaceType.Basement);
   const [capacity, setCapacity] = useState(10);
-  const [errors, setErrors] = useState<IValidateCreateSafePlaceFormResult>({})
+  const [errors, setErrors] = useState<IValidateCreateSafePlaceFormResult>({});
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const handleOnChangeAddress = (event: ChangeEvent<HTMLInputElement>) => {
@@ -42,6 +43,14 @@ const CreateSafePlacePopup: FC<ICreateSafePlacePopupProps> = ({ onSave }) => {
   const handleOnClose = () => {
     dispatch(ClosePlaceSafePopup());
   };
+  const handleOnSave = async () => {
+    setIsLoading(true);
+    try {
+      await onSave({ address, capacity, description, imageSrc, type });
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const isCreateDisabled = () => {
     const newErrors = validateCreateSafePlaceForm({ address, description, capacity, imageSrc, type });
     return Object.keys(newErrors).length > 0;
@@ -52,7 +61,7 @@ const CreateSafePlacePopup: FC<ICreateSafePlacePopupProps> = ({ onSave }) => {
   };
 
   return (
-    <PopupLayout title="Create Safe Place" onClose={handleOnClose}>
+    <PopupLayout title="Create Safe Place" onClose={handleOnClose} key="key">
       <div className={styles.container}>
         <TextField
           error={!!errors.address}
@@ -95,14 +104,14 @@ const CreateSafePlacePopup: FC<ICreateSafePlacePopupProps> = ({ onSave }) => {
           onBlur={handleOnBlur('capacity')}
         />
         <div>
-          <Button color="secondary">Cancel</Button>
+          <Button color="secondary" onClick={handleOnClose}>Cancel</Button>
           <Button
             variant="contained"
             color="primary"
             disabled={isCreateDisabled()}
-            onClick={() => onSave({ address, imageSrc, capacity, description, type })}
+            onClick={handleOnSave}
           >
-            Create Safe Place
+            {isLoading ? 'Loading...' : 'Create Safe Place'}
           </Button>
         </div>
       </div>

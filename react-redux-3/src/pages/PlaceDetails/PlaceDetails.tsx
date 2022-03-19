@@ -6,7 +6,7 @@ import PageLayout from '../../components/PageLayout/PageLayout';
 import PlaceTypeIcon from '../../components/PlaceTypeIcon/PlaceTypeIcon';
 import DateFormat from '../../constants/Dateformat';
 import { RootState } from '../../redux';
-import { getPlacesDetails } from '../../redux/PlacesDetails/ActionCreators';
+import { dislikePlacesDetails, getPlacesDetails, likePlacesDetails } from '../../redux/PlacesDetails/ActionCreators';
 import formatCapacity from '../../utils/formatCapacity';
 import formatDate from '../../utils/formatDate';
 import styles from './PlaceDetails.module.scss';
@@ -19,9 +19,16 @@ const PlaceDetails: FC = () => {
   const { id } = useParams();
   const placeDetails = useSelector((state: RootState) => state.placesDetails);
 
+  const handleLikeClick = () => {
+    dispatch(likePlacesDetails(id!));
+  }
+  const handleDisLikeClick = () => {
+    dispatch(dislikePlacesDetails(id!));
+  }
+
   useEffect(() => {
     dispatch(getPlacesDetails(id!))
-  }, [])
+  }, [id])
 
   const {
     address,
@@ -29,7 +36,9 @@ const PlaceDetails: FC = () => {
     createdAt,
     description,
     imageSrc,
-    type
+    type,
+    likes,
+    isLiked
   } = placeDetails[id!] || {};
 
   const isLoading = placeDetails[id!] === undefined
@@ -69,7 +78,8 @@ const PlaceDetails: FC = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" disabled={isLoading}>Like</Button>
+            {!isLiked && <Button size="small" disabled={isLoading} onClick={handleLikeClick}>{likes} Like</Button>}
+            {isLiked && <Button size="small" disabled={isLoading} onClick={handleDisLikeClick} color="error">{likes} Dislike</Button>}
           </CardActions>
         </Card>
       </div>
