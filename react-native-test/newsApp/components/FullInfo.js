@@ -1,12 +1,16 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image, Linking } from 'react-native';
 import gStyle from '../styles/style';
 
-const Contacts = ({ route }) => {
-
+const FullInfo = ({ route }) => {
   return (
     <View style={gStyle.main}>
-      <Text style={gStyle.title}>{route.params.name}</Text>
-      <Text>{route.params.full}</Text>
+      <Image source={{
+        uri: `${route.params.imageUrl}`
+      }}
+      style={{width: '100%', height: 300}}
+      />
+      <Text style={gStyle.title}>{route.params.title}</Text>
+      <Text>{route.params.content}</Text>
     </View>
   );
 }
@@ -15,4 +19,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Contacts;
+export default FullInfo;
