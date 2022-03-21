@@ -4,6 +4,7 @@ import AppLoading from 'expo-app-loading';
 import {useState} from 'react';
 import MainStack from './navigate';
 import 'react-native-gesture-handler';
+import { NativeBaseProvider } from 'native-base';
 
 const  fonts = () => Font.loadAsync({
   'mt-bold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
@@ -15,7 +16,9 @@ const App = () => {
 
   if(font){
     return (
-      <MainStack />
+      <NativeBaseProvider>
+        <MainStack />
+      </NativeBaseProvider>
     );
   } else {
     return (
