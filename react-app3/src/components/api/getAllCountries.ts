@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './api';
 
 export interface IBaseAllCountry {
   countryCode: string;
@@ -6,7 +6,7 @@ export interface IBaseAllCountry {
 };
 
 const getAllCountries = async (): Promise<IBaseAllCountry[]> => {
-  const response = await axios.get<IBaseAllCountry[]>('https://date.nager.at/api/v3/AvailableCountries');
+  const response = await axios.get<IBaseAllCountry[]>('AvailableCountries');
 
   return response.data;
 };

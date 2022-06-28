@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './api';
 
 interface IBaseCountryInfo {
   commonName: string;
@@ -12,7 +12,7 @@ export interface ICountryInfo extends IBaseCountryInfo {
 };
 
 const getCountryInfo = async (countryCode: string): Promise<ICountryInfo> => {
-  const response = await axios.get<ICountryInfo>(`https://date.nager.at/api/v3/CountryInfo/${countryCode}`);
+  const response = await axios.get<ICountryInfo>(`CountryInfo/${countryCode}`);
 
   return response.data;
 };

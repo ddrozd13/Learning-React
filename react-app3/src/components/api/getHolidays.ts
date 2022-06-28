@@ -1,3 +1,5 @@
+import axios from './api';
+
 export interface IHoliday {
   date: number;
   name: string;
@@ -9,10 +11,9 @@ const getHolidays = async (countryCode: string, year: number): Promise<IHoliday[
     alert('Not found this year')
     return []
   }else {
-    const response = await fetch(`https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`);
-    const holidays = await response.json();
+    const response = await axios.get(`publicholidays/${year}/${countryCode}`);
 
-    return holidays;
+    return response.data;
   };
 };
 

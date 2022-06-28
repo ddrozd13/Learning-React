@@ -5,7 +5,7 @@ import getNews from './api/getNews';
 import ListItem from './ListItem';
 
 const Main = ({ navigation }) => {
-  const [selectedValue, setSelectedValue] = useState("all");
+  const [selectedValue, setSelectedValue] = useState("");
   const [info, setInfo] = useState([]);
   const fetchNews = async (category) => {
     const details = await getNews(category);
